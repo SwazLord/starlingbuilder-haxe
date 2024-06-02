@@ -172,7 +172,7 @@
             "customParams":{},
             "params":{
               "currentFrame":11,
-              "name":"movieClip",
+              "name":"_bird_mc",
               "x":102,
               "y":84.25
             }
@@ -249,7 +249,7 @@
                 }
               },
               "height":100,
-              "name":"_top_text",
+              "name":"top_text",
               "width":400,
               "x":2
             }

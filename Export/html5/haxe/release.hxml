@@ -11,7 +11,7 @@
 -D format=3.7.0
 -cp C:/Users/playkiamac/Documents/GitHub/feathersui-starling/src
 -D feathersui-starling=0.0.0
--cp Source
+-cp src
 -D AIR_SDK=C:\Users\playkiamac\Documents\AIR_SDKs
 -D tools=8.1.2
 -D lime-canvas

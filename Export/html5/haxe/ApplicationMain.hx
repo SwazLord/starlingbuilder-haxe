@@ -35,7 +35,7 @@ class ApplicationMain
 		ManifestResources.init(config);
 		#end
 
-		app.meta["build"] = "31";
+		app.meta["build"] = "1";
 		app.meta["company"] = "Company Name";
 		app.meta["file"] = "StarlingbuilderHaxe";
 		app.meta["name"] = "StarlingbuilderHaxe";
