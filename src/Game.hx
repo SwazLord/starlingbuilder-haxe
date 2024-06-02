@@ -1,5 +1,6 @@
 package;
 
+import starling.utils.MathUtil;
 import starling.text.TextField;
 import starling.events.Event;
 import haxe.Json;
@@ -91,7 +92,7 @@ class Game extends Sprite {
 
 		Starling.current.juggler.add(_bird_mc);
 		_bird_mc.play();
-		
+
 		onResize(null);
 	}
 
@@ -116,10 +117,15 @@ class Game extends Sprite {
 	}
 
 	private function onResize(event:ResizeEvent):Void {
+		var new_scale:Float = MathUtil.min(1.0 * stage.stageWidth / _sprite.width, 1.0 * stage.stageHeight / _sprite.height);
+		_sprite.scaleX = _sprite.scaleY = round2(new_scale, 2);
+		_sprite.width = stage.stageWidth;
+		_sprite.height = stage.stageHeight;
 		center(_sprite);
 	}
 
 	private function center(obj:DisplayObject):Void {
+		trace("Starling.current.stage.stageWidth = " + Starling.current.stage.stageWidth);
 		obj.x = (Starling.current.stage.stageWidth - obj.width) * 0.5;
 		obj.y = (Starling.current.stage.stageHeight - obj.height) * 0.5;
 	}

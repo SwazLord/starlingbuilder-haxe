@@ -2,7 +2,7 @@
 <application xmlns="http://ns.adobe.com/air/application/28.0">
 	<id>com.sample.starlingbuilderhaxe</id>
 	<versionLabel>1.0.0</versionLabel>
-	<versionNumber>34</versionNumber>
+	<versionNumber>2</versionNumber>
 	<filename>StarlingbuilderHaxe</filename>
 	<name>StarlingbuilderHaxe</name>
 	<description></description>

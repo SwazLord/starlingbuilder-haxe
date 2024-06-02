@@ -925,7 +925,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "31";
+	app.meta.h["build"] = "2";
 	app.meta.h["company"] = "Company Name";
 	app.meta.h["file"] = "StarlingbuilderHaxe";
 	app.meta.h["name"] = "StarlingbuilderHaxe";
@@ -19658,11 +19658,9 @@ Game.prototype = $extend(starling_display_Sprite.prototype,{
 	,_button_fr: null
 	,_button_de: null
 	,_button_es: null
-	,_top_text: null
-	,_bottom_text: null
 	,start: function() {
 		var localization = new starlingbuilder_engine_localization_DefaultLocalization(JSON.parse(openfl_utils_Assets.getText("assets/localization/strings.json")),"en_US");
-		haxe_Log.trace("localization" + Std.string(localization),{ fileName : "Source/Game.hx", lineNumber : 65, className : "Game", methodName : "start"});
+		haxe_Log.trace("localization" + Std.string(localization),{ fileName : "src/Game.hx", lineNumber : 63, className : "Game", methodName : "start"});
 		Game.assetManager = new starling_assets_AssetManager();
 		Game.assetManager.set_verbose(true);
 		this._assetMediator = new AssetMediator(Game.assetManager);
@@ -19673,7 +19671,7 @@ Game.prototype = $extend(starling_display_Sprite.prototype,{
 		starling_core_Starling.get_current().get_stage().addEventListener("resize",$bind(this,this.onResize));
 	}
 	,onComplete: function() {
-		haxe_Log.trace("Assets Loaded",{ fileName : "Source/Game.hx", lineNumber : 83, className : "Game", methodName : "onComplete"});
+		haxe_Log.trace("Assets Loaded",{ fileName : "src/Game.hx", lineNumber : 81, className : "Game", methodName : "onComplete"});
 		this._sprite = new starling_display_Sprite();
 		var data = Game.uiBuilder.load(ParsedLayouts.main_ui,false,this);
 		this._sprite = data.object;
@@ -19683,24 +19681,31 @@ Game.prototype = $extend(starling_display_Sprite.prototype,{
 		this._button_de.addEventListener("triggered",$bind(this,this.onClick));
 		this._button_fr.addEventListener("triggered",$bind(this,this.onClick));
 		this._button_es.addEventListener("triggered",$bind(this,this.onClick));
+		starling_core_Starling.get_current().get_juggler().add(this._bird_mc);
+		this._bird_mc.play();
 		this.onResize(null);
 	}
 	,onClick: function(event,data) {
 		var locale = (js_Boot.__cast(event.target , starling_display_Button)).get_text();
-		haxe_Log.trace("locale : " + locale,{ fileName : "Source/Game.hx", lineNumber : 99, className : "Game", methodName : "onClick"});
+		haxe_Log.trace("locale : " + locale,{ fileName : "src/Game.hx", lineNumber : 101, className : "Game", methodName : "onClick"});
 		Game.uiBuilder.get_localization().set_locale(locale);
 		Game.uiBuilder.localizeTexts(this._sprite,this._params);
 	}
 	,onError: function(msg) {
-		haxe_Log.trace(msg,{ fileName : "Source/Game.hx", lineNumber : 105, className : "Game", methodName : "onError"});
+		haxe_Log.trace(msg,{ fileName : "src/Game.hx", lineNumber : 107, className : "Game", methodName : "onError"});
 	}
 	,onProgress: function(ratio) {
-		haxe_Log.trace("loading .. " + ratio,{ fileName : "Source/Game.hx", lineNumber : 109, className : "Game", methodName : "onProgress"});
+		haxe_Log.trace("loading .. " + ratio,{ fileName : "src/Game.hx", lineNumber : 111, className : "Game", methodName : "onProgress"});
 	}
 	,onResize: function(event) {
+		var new_scale = starling_utils_MathUtil.min(1.0 * this.get_stage().get_stageWidth() / this._sprite.get_width(),1.0 * this.get_stage().get_stageHeight() / this._sprite.get_height());
+		this._sprite.set_scaleX(this._sprite.set_scaleY(Game.round2(new_scale,2)));
+		this._sprite.set_width(this.get_stage().get_stageWidth());
+		this._sprite.set_height(this.get_stage().get_stageHeight());
 		this.center(this._sprite);
 	}
 	,center: function(obj) {
+		haxe_Log.trace("Starling.current.stage.stageWidth = " + starling_core_Starling.get_current().get_stage().get_stageWidth(),{ fileName : "src/Game.hx", lineNumber : 128, className : "Game", methodName : "center"});
 		obj.set_x((starling_core_Starling.get_current().get_stage().get_stageWidth() - obj.get_width()) * 0.5);
 		obj.set_y((starling_core_Starling.get_current().get_stage().get_stageHeight() - obj.get_height()) * 0.5);
 	}
@@ -19812,7 +19817,7 @@ ManifestResources.init = function(config) {
 		ManifestResources.rootPath = "./";
 	}
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Ftextures%2FArialUnicode.fnty4:sizei37855y4:typey4:TEXTy2:idR1goR0y36:assets%2Ftextures%2FArialUnicode.pngR2i259775R3y5:IMAGER5R6goR0y29:assets%2Ftextures%2FAtlas.pngR2i585914R3R7R5R8goR0y29:assets%2Ftextures%2FAtlas.xmlR2i3022R3R4R5R9goR0y36:assets%2Flocalization%2Fstrings.jsonR2i247R3R4R5R10y7:preloadtgoR0y31:assets%2Flayouts%2Fmain_ui.jsonR2i14137R3R4R5R12R11tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Ftextures%2FArialUnicode.fnty4:sizei37855y4:typey4:TEXTy2:idR1goR0y36:assets%2Ftextures%2FArialUnicode.pngR2i259775R3y5:IMAGER5R6goR0y29:assets%2Ftextures%2FAtlas.pngR2i585914R3R7R5R8goR0y29:assets%2Ftextures%2FAtlas.xmlR2i3022R3R4R5R9goR0y36:assets%2Flocalization%2Fstrings.jsonR2i247R3R4R5R10y7:preloadtgoR0y31:assets%2Flayouts%2Fmain_ui.jsonR2i14360R3R4R5R12R11tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -52437,7 +52442,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 355326;
+	this.version = 704031;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -119056,7 +119061,7 @@ starlingbuilder_engine_LayoutLoader.prototype = {
 	_layoutCls: null
 	,_preload: null
 	,load: function(name) {
-		haxe_Log.trace("class name = ",{ fileName : "Source/starlingbuilder/engine/LayoutLoader.hx", lineNumber : 73, className : "starlingbuilder.engine.LayoutLoader", methodName : "load", customParams : [name]});
+		haxe_Log.trace("class name = ",{ fileName : "src/starlingbuilder/engine/LayoutLoader.hx", lineNumber : 73, className : "starlingbuilder.engine.LayoutLoader", methodName : "load", customParams : [name]});
 		var value = Reflect.getProperty(this._layoutCls,name);
 		if(value == null) {
 			value = JSON.parse(openfl_utils_Assets.getText(name));
@@ -119198,7 +119203,7 @@ starlingbuilder_engine_UIBuilder.prototype = {
 		if(trimLeadingSpace == null) {
 			trimLeadingSpace = true;
 		}
-		haxe_Log.trace("called load",{ fileName : "Source/starlingbuilder/engine/UIBuilder.hx", lineNumber : 127, className : "starlingbuilder.engine.UIBuilder", methodName : "load"});
+		haxe_Log.trace("called load",{ fileName : "src/starlingbuilder/engine/UIBuilder.hx", lineNumber : 127, className : "starlingbuilder.engine.UIBuilder", methodName : "load"});
 		if(this._dataFormatter != null) {
 			data = this._dataFormatter.read(data);
 		}
@@ -119209,7 +119214,7 @@ starlingbuilder_engine_UIBuilder.prototype = {
 		}
 		this.localizeTexts(root,this.paramsDict);
 		if(binder) {
-			haxe_Log.trace("paramsDict length = " + Lambda.count(this.paramsDict),{ fileName : "Source/starlingbuilder/engine/UIBuilder.hx", lineNumber : 141, className : "starlingbuilder.engine.UIBuilder", methodName : "load"});
+			haxe_Log.trace("paramsDict length = " + Lambda.count(this.paramsDict),{ fileName : "src/starlingbuilder/engine/UIBuilder.hx", lineNumber : 141, className : "starlingbuilder.engine.UIBuilder", methodName : "load"});
 			starlingbuilder_engine_UIBuilder.bind(binder,this.paramsDict);
 		}
 		return { object : root, params : this.paramsDict, data : data};
@@ -119218,15 +119223,15 @@ starlingbuilder_engine_UIBuilder.prototype = {
 		var obj = js_Boot.__cast(factory.create(data) , starling_display_DisplayObject);
 		var v = data;
 		paramsDict.set(obj,v);
-		haxe_Log.trace("paramsDict length = " + Lambda.count(paramsDict),{ fileName : "Source/starlingbuilder/engine/UIBuilder.hx", lineNumber : 152, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
+		haxe_Log.trace("paramsDict length = " + Lambda.count(paramsDict),{ fileName : "src/starlingbuilder/engine/UIBuilder.hx", lineNumber : 152, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
 		var container = null;
 		if(((obj) instanceof starling_display_DisplayObjectContainer)) {
 			container = obj;
 		}
 		if(container != null) {
-			haxe_Log.trace("this is a container",{ fileName : "Source/starlingbuilder/engine/UIBuilder.hx", lineNumber : 170, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
+			haxe_Log.trace("this is a container",{ fileName : "src/starlingbuilder/engine/UIBuilder.hx", lineNumber : 170, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
 			if(data.children) {
-				haxe_Log.trace("has data.children",{ fileName : "Source/starlingbuilder/engine/UIBuilder.hx", lineNumber : 172, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
+				haxe_Log.trace("has data.children",{ fileName : "src/starlingbuilder/engine/UIBuilder.hx", lineNumber : 172, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
 				var _g = 0;
 				var _g1 = js_Boot.__cast(data.children , Array);
 				while(_g < _g1.length) {
@@ -119235,12 +119240,12 @@ starlingbuilder_engine_UIBuilder.prototype = {
 					if(!this._forEditor && item.customParams && item.customParams.forEditor) {
 						continue;
 					}
-					haxe_Log.trace("container.addChild for item = " + Std.string(item),{ fileName : "Source/starlingbuilder/engine/UIBuilder.hx", lineNumber : 176, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
+					haxe_Log.trace("container.addChild for item = " + Std.string(item),{ fileName : "src/starlingbuilder/engine/UIBuilder.hx", lineNumber : 176, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
 					container.addChild(this.loadTree(item,factory,paramsDict));
 				}
 			}
 			if(this.isExternalSource(data)) {
-				haxe_Log.trace("isExternal",{ fileName : "Source/starlingbuilder/engine/UIBuilder.hx", lineNumber : 182, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
+				haxe_Log.trace("isExternal",{ fileName : "src/starlingbuilder/engine/UIBuilder.hx", lineNumber : 182, className : "starlingbuilder.engine.UIBuilder", methodName : "loadTree"});
 				var externalData = this._dataFormatter.read(this._assetMediator.getExternalData(data.customParams.source));
 				var res = this.load(externalData);
 				container.addChild(js_Boot.__cast(res.object , starling_display_DisplayObject));
@@ -119281,7 +119286,7 @@ starlingbuilder_engine_UIBuilder.prototype = {
 		if(trimLeadingSpace == null) {
 			trimLeadingSpace = true;
 		}
-		haxe_Log.trace("create",{ fileName : "Source/starlingbuilder/engine/UIBuilder.hx", lineNumber : 321, className : "starlingbuilder.engine.UIBuilder", methodName : "create"});
+		haxe_Log.trace("create",{ fileName : "src/starlingbuilder/engine/UIBuilder.hx", lineNumber : 321, className : "starlingbuilder.engine.UIBuilder", methodName : "create"});
 		return this.load(data,trimLeadingSpace,binder).object;
 	}
 	,localizeTexts: function(root,paramsDict) {
@@ -119411,7 +119416,7 @@ starlingbuilder_engine_UIElementFactory.prototype = {
 		while(_g < array.length) {
 			var id = array[_g];
 			++_g;
-			haxe_Log.trace("id = " + Std.string(id),{ fileName : "Source/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 39, className : "starlingbuilder.engine.UIElementFactory", methodName : "setDirectParams"});
+			haxe_Log.trace("id = " + Std.string(id),{ fileName : "src/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 39, className : "starlingbuilder.engine.UIElementFactory", methodName : "setDirectParams"});
 			var item = data.params[id];
 			if(item != null && Object.prototype.hasOwnProperty.call(item,"cls")) {
 				Reflect.setProperty(obj,id,this.create(item));
@@ -119438,7 +119443,7 @@ starlingbuilder_engine_UIElementFactory.prototype = {
 		var cls;
 		var data;
 		var clsName = param.cls;
-		haxe_Log.trace("clsName = " + clsName,{ fileName : "Source/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 79, className : "starlingbuilder.engine.UIElementFactory", methodName : "createTexture"});
+		haxe_Log.trace("clsName = " + clsName,{ fileName : "src/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 79, className : "starlingbuilder.engine.UIElementFactory", methodName : "createTexture"});
 		switch(clsName) {
 		case "Object":
 			data = this._assetMediator.getObject(param.name);
@@ -119509,10 +119514,10 @@ starlingbuilder_engine_UIElementFactory.prototype = {
 			try {
 				var name = data.customParams.customComponentClass;
 				cls = $hxClasses[name];
-				haxe_Log.trace("cls is : ",{ fileName : "Source/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 193, className : "starlingbuilder.engine.UIElementFactory", methodName : "create", customParams : [cls]});
+				haxe_Log.trace("cls is : ",{ fileName : "src/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 193, className : "starlingbuilder.engine.UIElementFactory", methodName : "create", customParams : [cls]});
 			} catch( _g ) {
 				if(((haxe_Exception.caught(_g)) instanceof openfl_errors_Error)) {
-					haxe_Log.trace("Error : Class " + Std.string(data.customParams.customComponentClass) + " can't be instantiated.",{ fileName : "Source/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 195, className : "starlingbuilder.engine.UIElementFactory", methodName : "create"});
+					haxe_Log.trace("Error : Class " + Std.string(data.customParams.customComponentClass) + " can't be instantiated.",{ fileName : "src/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 195, className : "starlingbuilder.engine.UIElementFactory", methodName : "create"});
 				} else {
 					throw _g;
 				}
@@ -119532,7 +119537,7 @@ starlingbuilder_engine_UIElementFactory.prototype = {
 			var _g1 = haxe_Exception.caught(_g);
 			if(((_g1) instanceof openfl_errors_Error)) {
 				var e = _g1;
-				haxe_Log.trace("Error " + Std.string(e),{ fileName : "Source/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 219, className : "starlingbuilder.engine.UIElementFactory", methodName : "create"});
+				haxe_Log.trace("Error " + Std.string(e),{ fileName : "src/starlingbuilder/engine/UIElementFactory.hx", lineNumber : 219, className : "starlingbuilder.engine.UIElementFactory", methodName : "create"});
 				obj = Type.createInstance(cls,[]);
 			} else {
 				throw _g;

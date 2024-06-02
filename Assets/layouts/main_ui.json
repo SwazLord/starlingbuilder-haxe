@@ -75,7 +75,7 @@
             }
           },
           "name":"top_right_container",
-          "x":860
+          "x":1180
         }
       },
       {
@@ -114,7 +114,7 @@
             }
           },
           "name":"bottom_left_container",
-          "y":540
+          "y":620
         }
       },
       {
@@ -153,8 +153,8 @@
             }
           },
           "name":"bottom_right",
-          "x":860,
-          "y":540
+          "x":1180,
+          "y":620
         }
       },
       {
@@ -215,8 +215,8 @@
           },
           "name":"layoutGroup",
           "width":400,
-          "x":280,
-          "y":120
+          "x":440,
+          "y":160
         }
       },
       {
@@ -292,7 +292,7 @@
           },
           "name":"layoutGroup",
           "width":400,
-          "x":280
+          "x":440
         }
       },
       {
@@ -368,8 +368,8 @@
           },
           "name":"layoutGroup",
           "width":400,
-          "x":280,
-          "y":540
+          "x":440,
+          "y":620
         }
       },
       {
@@ -493,9 +493,17 @@
               "verticalAlign":"middle"
             }
           },
-          "name":"layoutGroup",
-          "x":34.5,
-          "y":155.5
+          "layoutData":{
+            "cls":"feathers.layout.AnchorLayoutData",
+            "customParams":{},
+            "params":{
+              "left":5,
+              "verticalCenter":0
+            }
+          },
+          "name":"button_layoutGroup",
+          "x":5,
+          "y":182
         }
       }
     ],
@@ -513,8 +521,8 @@
         "customParams":{},
         "params":{
           "name":null,
-          "scaleX":30,
-          "scaleY":20,
+          "scaleX":40,
+          "scaleY":22.5,
           "tileGrid":{
             "cls":"flash.geom.Rectangle",
             "customParams":{},
@@ -525,7 +533,7 @@
           }
         }
       },
-      "height":640,
+      "height":720,
       "layout":{
         "cls":"feathers.layout.AnchorLayout",
         "customParams":{},
@@ -540,14 +548,14 @@
         }
       },
       "name":"root",
-      "width":960
+      "width":1280
     }
   },
   "setting":{
     "canvasColor":16777215,
     "canvasSize":{
-      "x":960,
-      "y":640
+      "x":1280,
+      "y":720
     }
   },
   "version":"2.0"
