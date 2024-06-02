@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker https://www.codeandweb.com/texturepacker -->
+<!-- $TexturePacker:SmartUpdate:92074b083eee2d4d266bf0c67e126720:24ee08ddebcabb807a3e792cfb7373db:6f4bd306abe6acedba29ba5ed0904060$ -->
+<TextureAtlas imagePath="Atlas.png" width="904" height="969">
+    <SubTexture name="about" x="787" y="516" width="100" height="100"/>
+    <SubTexture name="ArialUnicode" x="1" y="1" rotated="true" width="784" height="612" frameX="-2" frameY="-1" frameWidth="626" frameHeight="798"/>
+    <SubTexture name="button_img" x="1" y="618" rotated="true" width="89" height="200"/>
+    <SubTexture name="faq" x="579" y="857" width="100" height="100"/>
+    <SubTexture name="flight_00" x="155" y="803" rotated="true" width="150" height="152" frameX="-37" frameY="-18" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_01" x="1" y="820" width="152" height="148" frameX="-37" frameY="-20" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_02" x="307" y="795" rotated="true" width="139" height="152" frameX="-37" frameY="-28" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_03" x="218" y="618" rotated="true" width="131" height="175" frameX="-14" frameY="-33" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_04" x="787" y="329" rotated="true" width="100" height="185" frameX="-6" frameY="-61" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_05" x="486" y="618" rotated="true" width="128" height="152" frameX="-37" frameY="-60" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_06" x="351" y="618" rotated="true" width="133" height="152" frameX="-37" frameY="-59" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_07" x="448" y="772" rotated="true" width="129" height="152" frameX="-37" frameY="-59" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_08" x="616" y="615" width="152" height="119" frameX="-37" frameY="-60" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_09" x="770" y="618" rotated="true" width="119" height="152" frameX="-37" frameY="-62" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_10" x="616" y="736" width="152" height="119" frameX="-37" frameY="-64" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_11" x="787" y="1" rotated="true" width="116" height="152" frameX="-37" frameY="-67" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_12" x="787" y="155" rotated="true" width="101" height="172" frameX="-17" frameY="-67" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="flight_13" x="92" y="618" rotated="true" width="124" height="183" frameX="-6" frameY="-44" frameWidth="200" frameHeight="200"/>
+    <SubTexture name="settings" x="681" y="857" width="100" height="100"/>
+    <SubTexture name="shop" x="783" y="772" width="100" height="100"/>
+    <SubTexture name="UI_Flat_Slot_02_Available" x="448" y="926" width="32" height="32"/>
+</TextureAtlas>

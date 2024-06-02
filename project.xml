@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="StarlingbuilderHaxe" package="com.sample.starlingbuilderhaxe" version="1.0.0" company="Company Name" />
+	<app main="Startup" path="Export" file="StarlingbuilderHaxe" />
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	<haxelib name="starling" />
+	<haxelib name="format" />
+	<haxelib name="feathersui-starling" />
+	
+	<assets path="Assets/textures" rename="assets/textures"  embed="false" />
+	<assets path="Assets/localization" rename="assets/localization"  embed="true" />
+	<assets path="Assets/layouts" rename="assets/layouts"  embed="true" />
+	
+</project>

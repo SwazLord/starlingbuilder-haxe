@@ -1,0 +1,14 @@
+{
+  "msg_01" : {
+    "en" : "Hello World",
+    "fr" : "Bonjour le monde",
+    "de" : "Hallo Welt",
+    "es" : "Hola mundo"
+  },
+  "msg_02" : {
+    "en" : "Thank You",
+    "fr" : "Merci",
+    "de" : "Danke",
+    "es" : "Gracias"
+  }
+}
