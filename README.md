@@ -1,2 +1,2 @@
 # starlingbuilder-haxe
- A haxe port fo Starling Builder
+ A haxe port of Starling Builder's Engine 
