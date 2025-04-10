@@ -222,11 +222,12 @@ class UIBuilder implements IUIBuilder {
 				if (name != null && name.charAt(0) == "_") {
 					if (Type.getInstanceFields(Type.getClass(view)).contains(name)) {
 						Reflect.setProperty(view, name, obj);
-						if (Std.isOfType(obj, ICustomClass)) {
-							cast(obj, ICustomClass).init();
+						if (Std.isOfType(obj, ICustomComponent)) {
+							cast(obj, ICustomComponent).initComponent();
 						}
-					} else
+					} else {
 						throw new Error("Property " + name + " not defined in " + Lib.getQualifiedClassName(view));
+					}
 				}
 			}
 		}
